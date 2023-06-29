@@ -11,11 +11,19 @@
 			<div class="row no-gutters">
 				<aside class="col-md-6">
 					<article class="gallery-wrap">
-						<div class="img-big-wrap">
-							<a href="#"><img src="{{ single_product.images.url }}"></a>
+						<div class="img-big-wrap mainImage">
+							<center><img src="{{ single_product.images.url }}"></center>
 						</div> <!-- img-big-wrap.// -->
 
 					</article> <!-- gallery-wrap .end// -->
+					<ul class="thumb">
+						<li>
+							<a href="{{ single_product.images.url }}" target="mainImage"><img src="{{ single_product.images.url }}" alt="Product Image"></a>
+							{% for i in product_gallery %}
+							<a href="{{i.image.url}}" target="mainImage"><img src="{{i.image.url}}" alt="Product Image"></a>
+							{% endfor %}
+						</li>
+					</ul>
 				</aside>
 				<main class="col-md-6 border-left">
 
@@ -106,7 +114,7 @@
 							<input type="radio" name="rating" id="rating2" value="1" required /><label for="rating2" title="1"></label>
 							<input type="radio" name="rating" id="rating1" value="0.5" required /><label for="rating1" title="0.5" class="half"></label>
 						</div>
-            <br>
+<br>
 						Review Title:
 						<input type="text" class="form-control" name="subject">
 						<br>
@@ -124,9 +132,9 @@
 						{% endif %}
 
 					</div>
-          {% include 'includes/alerts.html' %}
+{% include 'includes/alerts.html' %}
 				</form>
-        <br>
+<br>
 <header class="section-heading">
 	<h3>Customer Reviews </h3>
 	<div class="rating-star">
@@ -177,5 +185,13 @@
 	</div> <!-- container .//  -->
 </section>
 <!-- ========================= SECTION CONTENT END// ========================= -->
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$('.thumb a').click(function(e){
+			e.preventDefault();
+			$('.mainImage img').attr('src', $(this).attr("href"));
+		})
+	})
+</script>
 {% endblock %}

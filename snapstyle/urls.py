@@ -1,4 +1,4 @@
-"""greatkart URL Configuration
+"""snapstyle URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
@@ -21,8 +21,8 @@ from django.conf import settings
 from django.contrib.staticfiles.views import serve
 from django.conf.urls import handler404, handler500
 
-handler404 = 'greatkart.views.custom_error_404'
-handler500 = 'greatkart.views.custom_error_500'
+handler404 = 'snapstyle.views.custom_error_404'
+handler500 = 'snapstyle.views.custom_error_500'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
